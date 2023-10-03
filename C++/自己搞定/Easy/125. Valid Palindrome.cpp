@@ -1,3 +1,8 @@
+#include<iostream>
+#include <bits/stdc++.h>
+#include <map>
+using namespace std;
+
 class Solution {
 public:
     char ToLower(char word){
