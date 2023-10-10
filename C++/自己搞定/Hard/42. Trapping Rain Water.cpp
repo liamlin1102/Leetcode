@@ -42,5 +42,20 @@ public:
         return answer;
         
     }
+    //方法2，既然知道相對最大值的概念，我只要先維護出每個位置的從左邊數來的最大，跟從右邊數來的最大，這兩著之間的最小值，那就會是這一格水窪的高度
+    int trap2(vector<int>& height){
+        int left=0;int right=height.size()-1;int answer=0;vector<int> maxLeft = vector(0,height.size());vector<int> maxRight;int maxHeight=0;
+        for(int index=1;index<height.size() ;index++){
+            maxHeight = max(maxHeight,height[index-1]);
+            maxLeft[index]=maxHeight;
+        }
+        for(i)
 
+    }
 };
+int main(){
+    vector<int>test{1,2,3,4,5};
+    for(auto it = test.rbegin();it!=test.rend();it++){
+        cout<<test[it];
+    }
+}

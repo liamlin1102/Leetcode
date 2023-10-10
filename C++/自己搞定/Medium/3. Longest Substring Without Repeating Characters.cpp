@@ -41,7 +41,7 @@ public:
         longestLen = max(longestLen,nowLen);
         return longestLen;
     }
-    int lengthOfLongestSubstring_smart(string s) {
+    int lengthOfLongestSubstring_map(string s) {
         unordered_map<char,int> numIndex;int nowLen=0;int answer=0;int left=0;
         //更簡單的方法，既然都用map了，那為什麼不直接把位置存下來，這樣只要重複的點 比現在的left近，我就維護總長度
         //為什麼呢舉個例子，aabaab，此時在index = 2 的時候，b存在index=2 aindex = 1
@@ -54,12 +54,33 @@ public:
                 //此時去看left跟儲存的重複值得位置靠右，用靠右的那個當開始計算新字串的位置
                 left = max(left,numIndex[s[index]]);
                 //去維護長度，現在的位置等等會在下面新增所以-1(因為left是不算現在的位置的)
-                nowLen = index-left-1;1
+                nowLen = index-left-1;
             }
             numIndex[s[index]]=index;
             nowLen++;
         }
         answer=max(answer,nowLen);
+        return answer;
+    }
+    //另一種思路，上面都是遇到重複的結算，下面這種是不遇到重複時候才更新，遇到重複就持續移動左邊並移出SET裡面的duplicate word
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<int> meetWord;int nowLen=0;int answer=0;int left=0;int right = 0;
+        while(right < s.size()){
+            //不在就加進去並確認是否變大，維護nowLen
+            if(!meetWord.contains(s[right])){
+                meetWord.insert(s[right]);
+                nowLen++;
+                right++;
+                answer = max(nowLen,answer);
+            }
+            //在就遇到重複的，從left一路移除到right
+            else{
+                meetWord.erase(s[left]);
+                nowLen--;
+                left++;
+            }
+        }
+        answer = max(nowLen,answer);
         return answer;
     }
 };
