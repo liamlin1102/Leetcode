@@ -13,4 +13,14 @@ public:
         }
         return s.empty();        
     }
+
+    bool isSubsequence(string s, string t) {
+        int count = 0;
+        for(char word : t){
+            if(s[count]==word){
+                ++count;
+            }
+        }
+        return count==s.size();
+    }
 };
