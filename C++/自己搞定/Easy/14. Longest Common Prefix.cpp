@@ -1,13 +1,13 @@
 #include<iostream>
 #include <bits/stdc++.h>
 #include <vector>
-
+//最長的字串開頭，
 class Solution {
 public:
-    string longestCommonPrefix(vector<string>& strs) {
+    std::string longestCommonPrefix(std::vector<std::string>& strs) {
         std::string prefix = strs[0];
-        for(string target : strs){
-            int stopLen  = min(prefix.size(),target.size());
+        for(std::string target : strs){
+            int stopLen  = std::min(prefix.size(),target.size());
             prefix = prefix.substr(0,stopLen);
             for(int index=0;index<stopLen;index++){
                 if(target[index]!=prefix[index]){
