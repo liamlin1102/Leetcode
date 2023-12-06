@@ -3,7 +3,7 @@
 #include <vector>
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+    double findMedianSortedArrays(std::vector<int>& nums1, std::vector<int>& nums2) {
         int oneLength = nums1.size();int twoLength = nums2.size();
         int targetIndex = (oneLength+twoLength)/2;//如果不能整除就是這個index，如果可以整除須要targetIndex-1 + targetIndex雙資料
         if(nums1[0]>*(nums2.rbegin())){

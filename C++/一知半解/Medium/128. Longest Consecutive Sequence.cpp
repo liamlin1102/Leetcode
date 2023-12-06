@@ -3,6 +3,8 @@
 #include <map>
 using namespace std;
 
+
+// 找最長的連續元素，並且重複的不管他，那就一路加到set裡面，然後排序，如果現在加的值跟上個值
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums)

@@ -2,6 +2,26 @@
 #include <bits/stdc++.h>
 #include <map>
 using namespace std;
+//要找到哪幾天後的溫度比現在高
+class Solution {
+public:
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        vector<int> answer(temperatures.size());
+        for (int index = temperatures.size() - 1; index >= 0; --index) {
+            int nextIndex = index+1;
+            while (nextIndex < temperatures.size() && temperatures[nextIndex] <= temperatures[index]) {
+                if (answer[nextIndex] > 0)
+                    nextIndex = answer[nextIndex] + nextIndex;
+                else 
+                    nextIndex = temperatures.size();
+            }
+            if (nextIndex < temperatures.size()) 
+                answer[index] = nextIndex - index;
+        }
+        return answer;
+    }
+};
+
 
 class Solution {
 public:
@@ -21,3 +41,4 @@ public:
         return answer;      
     }
 };
+

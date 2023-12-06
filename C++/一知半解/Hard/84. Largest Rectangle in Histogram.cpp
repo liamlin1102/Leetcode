@@ -45,6 +45,7 @@ public:
         return maxArea;
     }
 };
+//拆解的方法，從左邊找最小，接下從右邊找最小邊界的index，最後把最左跟坐右的最小再找最小，最後就是答案
 class Solution {
 public:
     std::vector<int> nextSmallIndex(std::vector<int> heights){
