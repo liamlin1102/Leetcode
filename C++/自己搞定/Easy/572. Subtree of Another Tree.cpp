@@ -10,6 +10,7 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     };
+
 //每個點都比比看，有一樣的救回傳
 class Solution {
 public:
@@ -25,6 +26,7 @@ public:
         return isSubtree(root->left,subRoot)||isSubtree(root->right,subRoot);
     }
 };
+
 //反過來的思維，既然下面有東西就不算，那我就從最下面開始找，遇到頭是一樣的財確認是否一樣，是就一路回傳
 class Solution {
 public:
