@@ -32,6 +32,21 @@ public:
         return answer;
     }
 };
+//recrusive版本，用inorder解決(但是先看右邊的inorder)
+class Solution {
+    std::vector<int> answer;
+public:
+    std::vector<int> PreorderRight(TreeNode* root,int level){
+        if(!root) return answer;//一路往左
+        if(answer.size()<level) answer.emplace_back(root->val);//中
+        PreorderRight(root->right,level+1);//右邊
+        return PreorderRight(root->left,level+1);
+
+    }
+    std::vector<int> rightSideView(TreeNode* root) {
+        return PreorderRight(root,1);
+    }
+};
 
 
 class Solution {
