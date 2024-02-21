@@ -2,7 +2,9 @@
 #include <bits/stdc++.h>
 #include <map>
 using namespace std;
-
+//找最大是不是第二大的兩倍
+//只要每次去計算當前的值是否是最大值的兩倍
+//如果當前甚至比最大還大連帶更新最大值
 class Solution {
 public:
     int dominantIndex(vector<int>& nums) {
