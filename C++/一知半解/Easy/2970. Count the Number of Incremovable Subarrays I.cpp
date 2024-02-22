@@ -6,7 +6,6 @@ using namespace std;
 //純暴力解，要知道拔掉每個subarray是否為嚴格遞增，我只要檢查拔掉後的array是否遞增就好
 class Solution {
 public:
-    
     int incremovableSubarrayCount(vector<int>& nums) {
         int len = nums.size();int answer = 0;
         //第一個迴圈，為subarray的起點
